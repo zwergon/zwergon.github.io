@@ -8,7 +8,8 @@ from bs4 import BeautifulSoup
 
 INDEX_FILE = "index.html"
 TEMPLATE_FILE = "pkg_template.html"
-YAML_ACTION_FILES = [".github/workflows/delete.yml", ".github/workflows/update.yml"]
+YAML_ACTION_FILES = [".github/workflows/delete.yml",
+                     ".github/workflows/update.yml"]
 
 INDEX_CARD_HTML = '''
 <a class="card" href="">
@@ -80,7 +81,7 @@ def register(pkg_name, version, author, short_desc, homepage):
     spans[2].string = short_desc    # Second span contain the short description
 
     # Add it to our index and save it
-    soup.find('h6', class_='text-header').insert_after(new_package)
+    soup.find('h3', class_='text-header').insert_after(new_package)
     with open(INDEX_FILE, 'wb') as index:
         index.write(soup.prettify("utf-8"))
 
@@ -91,7 +92,8 @@ def register(pkg_name, version, author, short_desc, homepage):
     template = template.replace("_package_name", pkg_name)
     template = template.replace("_norm_version", norm_version)
     template = template.replace("_version", version)
-    template = template.replace("_link", f"{link}#egg={norm_pkg_name}-{norm_version}")
+    template = template.replace(
+        "_link", f"{link}#egg={norm_pkg_name}-{norm_version}")
     template = template.replace("_homepage", homepage)
     template = template.replace("_author", author)
     template = template.replace("_long_description", long_desc)
@@ -122,10 +124,10 @@ def update(pkg_name, version):
             index.write(soup.prettify("utf-8"))
 
     # Change the package page
-    index_file = os.path.join(norm_pkg_name, INDEX_FILE) 
+    index_file = os.path.join(norm_pkg_name, INDEX_FILE)
     with open(index_file) as html_file:
         soup = BeautifulSoup(html_file, "html.parser")
-        
+
     # Extract the URL from the onclick attribute
     button = soup.find('button', id='repoHomepage')
     if button:
@@ -154,7 +156,8 @@ def update(pkg_name, version):
 
     # Change the latest version (if stable)
     if is_stable(version):
-        soup.html.body.div.section.find_all('span')[1].contents[0].replace_with(version)
+        soup.html.body.div.section.find_all(
+            'span')[1].contents[0].replace_with(version)
 
     # Save it
     with open(index_file, 'wb') as index:
