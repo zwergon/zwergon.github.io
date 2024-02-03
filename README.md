@@ -1,6 +1,12 @@
 
+<h1 align="center">zwergon.github.io</h1>
 
-To go from md to html
-```bash
-pandoc -s index.md -c pandoc.css -o index.html
-```
+<ul>
+<li>Make some dataset available for github repositories</li>
+<li>Make all your private packages accessible in one place<br>with this github-hosted PyPi index</li>
+</ul>
+
+
+## References
+
+The **packages part** is greatly inspired from [this repository](https://github.com/astariul/github-hosted-pyp).

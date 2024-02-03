@@ -72,3 +72,48 @@ dd p {
         color: gray;
         text-align: center;
         }
+
+
+.card {
+display: inline-block;
+height: auto;
+min-width: 32%;
+padding: 0.5rem 2rem;
+margin: 0.5rem 0.5rem;
+font-size: 0.8rem;
+color: #555;
+font-weight: 600;
+line-height: 1.5;
+letter-spacing: .05rem;
+text-decoration: none;
+white-space: normal;
+background-color: transparent;
+border-radius: 4px;
+border: 1px solid #bbb;
+cursor: pointer;
+box-sizing: border-box;
+}
+
+.card:hover {
+border-color: darkcyan;
+color: darkcyan;
+}
+
+.version {
+font-size: 1rem;
+font-style: italic;
+}
+
+.description {
+font-weight: 300;
+}
+
+.redalert {
+border-color: crimson;
+color: crimson;
+}
+
+.redalert:hover {
+border-color: tomato;
+color: tomato;
+}

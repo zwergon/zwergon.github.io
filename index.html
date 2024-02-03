@@ -5,23 +5,53 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Zwergon’s Homepage.</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-  <link rel="stylesheet" href="pandoc.css" />
+  <link rel="stylesheet" href="./static/pandoc.css" />
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Zwergon’s Homepage.</h1>
+<h1 class="title">Zwergon’s Github Homepage.</h1>
 </header>
-<h2 id="a-few-dataset-to-download">A few dataset to download</h2>
+<h2 id="a-few-dataset-to-download">Few datasets to download</h2>
 <ul>
 <li><a href="./datasets/wb_dataset.tar.gz">"Wind Bench Dataset</a> for testing <a href="https://github.com/zwergon/wind_bench">wb-virtual</a></li>
 </ul>
+
+<h2 class="text-header">Few packages to install</h2>
+<p>
+ These are package hosted on github that you may install if you want
+  <br/>
+  You can install packages with :
+  <pre><code>pip install &lt;package_name&gt; --extra-index-url https://zwergon.github.io/</code></pre>
+ </p>
+ <h3>List of packages</h3>
+ <a class="card" href="wind_bench/index.html">
+  wind_bench
+  <span>
+  </span>
+  <span class="version">
+   0.1
+  </span>
+  <br/>
+  <span class="description">
+   A public github-hosted repo that illustrates how to perform 
+   virtual sensing on a bench dataset provided by the DTU.
+  </span>
+ </a>
+</div>
+<script>
+ $(document).ready(function(){
+    for (let lnk of document.getElementsByTagName('a')) {
+        var content = lnk.textContent.trim().replace(/\s\s+/g, ' ').split(" ");
+        var pkg_name = content[0];
+        var pkg_vers = content[1];
+
+        function mark_red() {
+            lnk.classList.add("redalert");
+        }
+
+        check_supply_chain_attack(pkg_name, pkg_vers, mark_red);
+    }
+});
+</script>
 </body>
 </html>
